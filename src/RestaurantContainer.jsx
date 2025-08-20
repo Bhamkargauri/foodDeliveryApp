@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Footer from "./Footer";
+import { Link } from "react-router";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 
@@ -15,6 +15,7 @@ const RestaurantContainer = () => {
     fetchData();
   }, []);
 
+  // fetch api
   const fetchData = async () => {
     try {
       const response = await axios.get(
@@ -36,47 +37,42 @@ const RestaurantContainer = () => {
     }
   };
 
+  // filter data on basis of ratings
   const handleFilterData = () => {
     let filteredData = listResData.filter((res) => {
-      // console.log(res);
       return res.info.avgRating > 4.4;
     });
-    // console.log(filteredData);
-    // setListResData(filteredData);
     setFilterCopyRest(filteredData);
   };
 
+  // filter veg data
   const handleVegData = () => {
     let vegData = listResData.filter((res) => {
-      // console.log(res);
       return res.info.veg === true;
     });
     console.log(vegData);
-    // setListResData(vegData);
     setFilterCopyRest(vegData);
   };
 
+  // filter non-veg data
   const handleNonVegData = () => {
     let nonVegData = listResData.filter((res) => !res.info.veg);
     console.log(nonVegData);
     setFilterCopyRest(nonVegData);
   };
 
+  // search restaurant and cuisines
   const handleSearch = () => {
-    if (searchInput.trim() === "") {
-      setFilterCopyRest(listResData);
-    } else {
-      const searchFilterData = listResData.filter((res) => {
-        return (
-          res.info.name.toLowerCase().includes(searchInput.toLowerCase()) ||
-          res.info.cuisines
-            .join(" ")
-            .toLowerCase()
-            .includes(searchInput.toLowerCase())
-        );
-      });
-      setFilterCopyRest(searchFilterData);
-    }
+    const searchFilterData = listResData.filter((res) => {
+      return (
+        res.info.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+        res.info.cuisines
+          .join(" ")
+          .toLowerCase()
+          .includes(searchInput.toLowerCase())
+      );
+    });
+    setFilterCopyRest(searchFilterData);
   };
 
   if (listResData.length === 0) {
@@ -107,19 +103,31 @@ const RestaurantContainer = () => {
               Non-Veg Restaurant
             </button>
           </div>
-          <div className="relative flex justify-end w-1/4 mr-4">
-            <img
-              src="src/assets/images/search.png"
-              className="absolute left-6 top-1/2 transform -translate-y-1/2 w-4 h-4"
-            />
-            <input
-              className="rounded-full m-2 pl-10 pr-0 p-2 shadow-lg text-sm text-pink-400 border border-pink-400 focus:border-pink-500 focus:outline-none"
-              placeholder="Search Restaurants"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-            ></input>
+
+          {/* search input section */}
+          <div className="flex items-center max-w-md mx-auto px-2 sm:px-4 pt-[10px]">
+            {/* Search Box */}
+            <div className="flex items-center flex-1 bg-white rounded-full shadow-lg border border-pink-400 focus-within:border-pink-500">
+              <img
+                src="src/assets/images/search.png"
+                className="w-4 h-4 ml-3"
+              />
+              <input
+                className="w-70 sm:w-52 md:w-64 lg:w-72 bg-transparent rounded p-2 text-[12px] text-pink-400 focus:outline-none"
+                placeholder="Search Restaurants or cuisines"
+                value={searchInput}
+                onChange={(e) => {
+                  let val = e.target.value;
+                  setSearchInput(val);
+                  if (val === "") {
+                    setFilterCopyRest(listResData);
+                  }
+                }}
+              />
+            </div>
+            {/* Search Button */}
             <button
-              className="bg-pink-500 p-2 m-2 ml-0 text-xs text-yellow-300 rounded-full shadow-lg hover:bg-yellow-300 hover:text-pink-500 cursor-pointer"
+              className="ml-2 bg-pink-500 px-2 py-1 text-sm text-yellow-300 rounded-full shadow-lg hover:bg-yellow-300 hover:text-pink-500 cursor-pointer"
               onClick={handleSearch}
             >
               Search
@@ -127,13 +135,18 @@ const RestaurantContainer = () => {
           </div>
         </div>
 
-        <div className="flex font-poppins mx-10 flex-wrap p-4 justify-center">
+        {/* <div className="flex font-poppins mx-10 flex-wrap p-4 justify-center"> */}
+        <div className="font-poppins grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-30 pt-5 gap-x-4 gap-y-10">
           {filterCopyRest.map((rest) => {
-            return <RestaurantCard key={rest.info.id} restList={rest} />;
+            console.log(rest);
+            return (
+              <Link key={rest.info.id} to={"/restaurant/" + rest.info.id}>
+                <RestaurantCard restList={rest} />
+              </Link>
+            );
           })}
         </div>
       </div>
-      <Footer />
     </>
   );
 };

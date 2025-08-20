@@ -1,10 +1,12 @@
+import { Outlet } from "react-router";
+import Footer from "./Footer";
 import Headers from "./Headers";
-import RestaurantContainer from "./RestaurantContainer";
 function App() {
   return (
     <>
       <Headers />
-      <RestaurantContainer />
+      <Outlet />
+      <Footer />
     </>
   );
 }

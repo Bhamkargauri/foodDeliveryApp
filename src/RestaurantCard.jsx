@@ -19,11 +19,11 @@ const RestaurantCard = (props) => {
 
   return (
     <>
-      {/* card 1 */}
-      <div className="max-w-sm  border-gray-200 rounded-lg shadow-sm bg-gray-100 m-2 w-1/5 transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-gray-400/50 hover:m-2 ">
+      {/* card 1  */}
+      <div className=" border-gray-200 rounded-lg shadow-sm bg-gray-100 m-2 transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-gray-400/50 hover:m-2 flex flex-col h-full ">
         <a href="#">
           <img
-            className="rounded-t-lg h-50 w-96"
+            className="rounded-t-lg w-full h-50 object-cover"
             src={
               "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
               cloudinaryImageId
@@ -31,7 +31,7 @@ const RestaurantCard = (props) => {
             alt="food image"
           />
         </a>
-        <div className="p-5">
+        <div className="p-2 flex-1 flex flex-col h-50">
           <a href="#">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-pink-500 text-shadow-lg">
               {name}

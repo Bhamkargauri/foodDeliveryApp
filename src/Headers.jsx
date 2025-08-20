@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 const Headers = () => {
   // const [isLogIn, setIsLogIn] = useState(false);
@@ -33,41 +34,43 @@ const Headers = () => {
           </svg>
         </label>
 
-        <ul className="hidden peer-checked:flex flex-col absolute top-16 right-4 bg-yellow-300 p-4 rounded-lg shadow-lg space-y-3 md:space-y-0 md:static md:flex md:flex-row md:space-x-8 md:bg-transparent md:shadow-none">
+        <ul className="hidden peer-checked:flex flex-col absolute top-16 right-4 bg-yellow-300 p-4 rounded-lg shadow-lg space-y-3 md:space-y-0 md:static md:flex md:flex-row md:space-x-8 md:bg-transparent md:shadow-none items-center">
           <li>
-            <a
-              href="#"
+            <Link
+              to="/"
               className="block py-2 px-3 text-pink-700 md:p-0 dark:text-white md:dark:text-pink-500 hover:text-pink-500 transition-colors"
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              to="/about"
               className="block py-2 px-3 md:p-0 dark:text-white md:dark:hover:text-pink-500 hover:text-pink-500 transition-colors"
             >
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              to="/contact"
               className="block py-2 px-3 md:p-0 dark:text-white md:dark:hover:text-pink-500 hover:text-pink-500 transition-colors"
             >
               Contact
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="#"
-              className="bg-pink-500 p-2 m-2 text-white rounded-full shadow-lg hover:bg-yellow-300 hover:text-pink-500 cursor-pointer text-center"
+              className="block bg-pink-500 p-2 m-2 px-5 text-white rounded-full shadow-lg 
+             hover:bg-yellow-300 hover:text-pink-500 cursor-pointer 
+             text-center min-w-24"
               onClick={() =>
                 setIsLogIn(islogIn === "Login" ? "Logout" : "Login")
               }
             >
               {islogIn}
-            </a>
+            </Link>
 
             {/* {isLogIn ? (
               <a
