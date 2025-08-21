@@ -11,7 +11,7 @@ const RestaurantContainer = () => {
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
-    console.log("UseEffect render");
+    // console.log("UseEffect render");
     fetchData();
   }, []);
 
@@ -21,17 +21,16 @@ const RestaurantContainer = () => {
       const response = await axios.get(
         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1397082&lng=79.0631071&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       );
+      // console.log(response);
       setListResData(
         response?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
       );
-
       setFilterCopyRest(
         response?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
       );
-
-      console.log(response);
+      // console.log(response);
     } catch (err) {
       console.error("data not found");
     }
@@ -138,7 +137,7 @@ const RestaurantContainer = () => {
         {/* <div className="flex font-poppins mx-10 flex-wrap p-4 justify-center"> */}
         <div className="font-poppins grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-30 pt-5 gap-x-4 gap-y-10">
           {filterCopyRest.map((rest) => {
-            console.log(rest);
+            // console.log(rest);
             return (
               <Link key={rest.info.id} to={"/restaurant/" + rest.info.id}>
                 <RestaurantCard restList={rest} />

@@ -1,16 +1,16 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import "flowbite";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Shimmer from "../Shimmer";
+import RestaurantMenuCategories from "./RestaurantMenuCategories";
 
 const RestaurantMenus = () => {
   const [restMenu, setRestMenu] = useState([]);
 
   const { resId } = useParams();
-  console.log("resId = ", resId);
+  // console.log("resId = ", resId);
 
   useEffect(() => {
     console.log("useEffect from menu");
@@ -22,7 +22,7 @@ const RestaurantMenus = () => {
       const res = await axios.get(
         `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.1397082&lng=79.0631071&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
       );
-      console.log("Menus from RestaurantMenu = ", res);
+      // console.log("Menus from RestaurantMenu = ", res);
       setRestMenu(res.data);
     } catch (err) {
       console.error(err);
@@ -50,6 +50,19 @@ const RestaurantMenus = () => {
   const itemCards =
     restMenu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card?.itemCards || [];
+
+  const filteredMenu =
+    restMenu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (crd) => {
+        // console.log("Card", crd);
+        return (
+          crd.card.card["@type"] ==
+            "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" ||
+          crd.card.card["@type"] ==
+            "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
+        );
+      }
+    );
 
   return (
     <div className="font-poppins">
@@ -82,14 +95,12 @@ const RestaurantMenus = () => {
 
       <div>
         <div>
-          <h1 className="text-3xl">{title}</h1>
-
-          {itemCards.map((item) => {
-            return (
-              <>
-                <h1 className="text-2xl">{item.card.info.name}</h1>;
-              </>
-            );
+          <h1 className="flex justify-center dark:text-gray-600">
+            *✩₊˚༺☆M E N U☆༻˚₊✩*
+          </h1>
+          {filteredMenu.map((card, index) => {
+            // console.log("Card receive", card);
+            return <RestaurantMenuCategories key={index} data={card} />;
           })}
         </div>
       </div>
