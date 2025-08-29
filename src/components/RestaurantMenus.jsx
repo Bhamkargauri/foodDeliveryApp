@@ -13,7 +13,7 @@ const RestaurantMenus = () => {
   // console.log("resId = ", resId);
 
   useEffect(() => {
-    console.log("useEffect from menu");
+    // console.log("useEffect from menu");
     fetchMenuData();
   }, []);
 
@@ -43,13 +43,13 @@ const RestaurantMenus = () => {
     totalRatingsString,
   } = restMenu?.data?.cards[2]?.card?.card?.info || {};
 
-  const title =
-    restMenu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card?.title;
+  // const title =
+  //   restMenu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+  //     ?.card?.title;
 
-  const itemCards =
-    restMenu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card?.itemCards || [];
+  // const itemCards =
+  //   restMenu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+  //     ?.card?.itemCards || [];
 
   const filteredMenu =
     restMenu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -98,10 +98,12 @@ const RestaurantMenus = () => {
           <h1 className="flex justify-center dark:text-gray-600">
             *✩₊˚༺☆M E N U☆༻˚₊✩*
           </h1>
-          {filteredMenu.map((card, index) => {
-            // console.log("Card receive", card);
-            return <RestaurantMenuCategories key={index} data={card} />;
-          })}
+          <div className="">
+            {filteredMenu.map((card, index) => {
+              // console.log("Card receive", card);
+              return <RestaurantMenuCategories key={index} data={card} />;
+            })}
+          </div>
         </div>
       </div>
     </div>

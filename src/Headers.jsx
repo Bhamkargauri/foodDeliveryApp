@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import useOnlineStatus from "./components/useOnlineStatus";
+import Grocery from './components/Grocery';
 
 const Headers = () => {
   // const [isLogIn, setIsLogIn] = useState(false);
   const [islogIn, setIsLogIn] = useState("Login");
+  const isOnline = useOnlineStatus();
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-yellow-300 font-poppins">
@@ -35,6 +38,9 @@ const Headers = () => {
         </label>
 
         <ul className="hidden peer-checked:flex flex-col absolute top-16 right-4 bg-yellow-300 p-4 rounded-lg shadow-lg space-y-3 md:space-y-0 md:static md:flex md:flex-row md:space-x-8 md:bg-transparent md:shadow-none items-center">
+          <li className="block py-2 px-3 md:p-0 dark:text-white md:dark:hover:text-pink-500 hover:text-pink-500 transition-colors">
+            Online Status {isOnline ? "🟢" : "🔴"}
+          </li>
           <li>
             <Link
               to="/"
@@ -57,6 +63,14 @@ const Headers = () => {
               className="block py-2 px-3 md:p-0 dark:text-white md:dark:hover:text-pink-500 hover:text-pink-500 transition-colors"
             >
               Contact
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/grocery"
+              className="block py-2 px-3 md:p-0 dark:text-white md:dark:hover:text-pink-500 hover:text-pink-500 transition-colors"
+            >
+              Grocery
             </Link>
           </li>
           <li>
