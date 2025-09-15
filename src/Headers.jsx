@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import logo from "../src/assets/images/logo.png";
+import name from "../src/assets/images/name.png";
 import useOnlineStatus from "./components/useOnlineStatus";
-import Grocery from './components/Grocery';
 
 const Headers = () => {
   // const [isLogIn, setIsLogIn] = useState(false);
@@ -12,8 +13,8 @@ const Headers = () => {
     <nav className="bg-white border-gray-200 dark:bg-yellow-300 font-poppins">
       <div className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
         <div className="flex">
-          <img src="src/assets/images/logo.png" alt="Logo" className="w-24" />
-          <img src="src/assets/images/name.png" className="w-25 ml-0" />
+          <img src={logo} alt="Logo" className="w-24" />
+          <img src={name} className="w-25 ml-0" />
         </div>
         <input type="checkbox" id="menu-toggle" className="hidden peer" />
         <label

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import search from "../src/assets/images/search.png";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "./components/useOnlineStatus";
@@ -112,10 +113,7 @@ const RestaurantContainer = () => {
           <div className="flex items-center max-w-md mx-auto px-2 sm:px-4 pt-[10px]">
             {/* Search Box */}
             <div className="flex items-center flex-1 bg-white rounded-full shadow-lg border border-pink-400 focus-within:border-pink-500">
-              <img
-                src="src/assets/images/search.png"
-                className="w-4 h-4 ml-3"
-              />
+              <img src={search} className="w-4 h-4 ml-3" />
               <input
                 className="w-70 sm:w-52 md:w-64 lg:w-72 bg-transparent rounded p-2 text-[12px] text-pink-400 focus:outline-none"
                 placeholder="Search Restaurants or cuisines"
