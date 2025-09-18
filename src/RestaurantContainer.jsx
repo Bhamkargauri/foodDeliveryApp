@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import search from "../src/assets/images/search.png";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
@@ -12,10 +12,19 @@ const RestaurantContainer = () => {
 
   const [searchInput, setSearchInput] = useState("");
 
+  const location = useLocation();
+  // console.log("Location hook = ", location);
+
   useEffect(() => {
     // console.log("UseEffect render");
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (location.pathname==="/") {
+      setFilterCopyRest(listResData);
+    }
+  }, [location.key]);
 
   // fetch api
   const fetchData = async () => {
