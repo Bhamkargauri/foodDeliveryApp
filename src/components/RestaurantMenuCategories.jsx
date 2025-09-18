@@ -24,7 +24,7 @@ const RestaurantMenuCategories = ({ data }) => {
         bg-gray-300 px-4 py-2
       "
         >
-          {data.card.card.title} (
+          {data.card.card.title}(
           {data?.card?.card?.itemCards?.length ||
             data?.card?.card?.categories?.length}
           )

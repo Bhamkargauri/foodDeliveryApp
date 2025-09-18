@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const MenuItemList = ({ listData }) => {
-  //   console.log("data from MenuItemList = ", listData);
+    console.log("data from MenuItemList = ", listData);
   const [toggle, setToggle] = useState(null);
 
   const handleToggle = (index) => {
@@ -14,8 +14,12 @@ const MenuItemList = ({ listData }) => {
   //
   return (
     <div>
-      {listData?.card?.card?.itemCards &&
+      {
+        
+        listData?.card?.card?.itemCards &&
+        
         listData?.card?.card?.itemCards.map((item) => {
+          
           const {
             id,
             name,
@@ -63,7 +67,7 @@ const MenuItemList = ({ listData }) => {
           );
         })}
 
-      {listData?.card?.card?.categories &&
+      {listData?.card?.card?.categories && 
         listData?.card?.card?.categories.map((cat, index) => {
           // console.log("category item = ", cat);
           return (
