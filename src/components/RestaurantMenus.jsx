@@ -11,9 +11,9 @@ const RestaurantMenus = () => {
 
   const [accordion, setAccordion] = useState(false);
 
-  const handleAccordion = () => {
-    setAccordion(!accordion);
-  };
+  // const handleAccordion = () => {
+  //   setAccordion(!accordion);
+  // };
 
   const { resId } = useParams();
   // console.log("resId = ", resId);

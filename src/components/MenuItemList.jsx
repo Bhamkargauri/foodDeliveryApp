@@ -47,7 +47,7 @@ const MenuItemList = ({ listData }) => {
                 </div>
                 <div className="w-1/6 m-4">
                   <img
-                    className="w-25 h-26 rounded-3xl"
+                    className="w-25 h-26 rounded-full"
                     src={
                       "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
                       imageId
@@ -75,7 +75,7 @@ const MenuItemList = ({ listData }) => {
                 <h1 className=" w-2xl text-xm px-4 py-2">
                   {cat.title} ({cat?.itemCards?.length})
                 </h1>
-                
+
                 <span className="  text-xm font-bold px-4 py-2 transition-transform duration-300">
                   {toggle === index ? "↑" : "↓"}
                 </span>
@@ -115,14 +115,16 @@ const MenuItemList = ({ listData }) => {
                             </p>
                           </div>
                           <div className="w-1/6 m-4">
-                            <img
-                              className="w-25 h-26 rounded-3xl"
-                              src={
-                                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-                                imageId
-                              }
-                              alt="food image"
-                            />
+                            {imageId && (
+                              <img
+                                className="w-25 h-26 rounded-full"
+                                src={
+                                  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+                                  imageId
+                                }
+                                alt="food image"
+                              />
+                            )}
                             <button className="bg-gray-300 font-semibold text-pink-500 w-25 rounded-xl mr-5 mt-1 text-sm cursor-pointer hover:bg-gray-400 hover:shadow-md">
                               Add Cart
                             </button>

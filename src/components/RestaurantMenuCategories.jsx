@@ -17,7 +17,9 @@ const RestaurantMenuCategories = ({ data, accordion, handleAccordion }) => {
 
   return (
     <>
-      {isItemCategory ? (
+      {isItemCategory ?
+        // item category list
+        (
         <div className="mt-5 flex justify-center">
           <div className="w-2xl">
             <div
@@ -58,7 +60,9 @@ const RestaurantMenuCategories = ({ data, accordion, handleAccordion }) => {
             )}
           </div>
         </div>
-      ) : (
+      ) :
+      // nested menu item category list
+        (
         <div className="flex justify-center mt-5">
           <div className="w-2xl bg-gray-200 rounded-xl px-6 py-4 shadow-md">
             <h1 className="font-semibold text-xl text-gray-800">
