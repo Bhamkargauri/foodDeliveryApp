@@ -9,6 +9,12 @@ import RestaurantMenuCategories from "./RestaurantMenuCategories";
 const RestaurantMenus = () => {
   const [restMenu, setRestMenu] = useState([]);
 
+  const [accordion, setAccordion] = useState(false);
+
+  const handleAccordion = () => {
+    setAccordion(!accordion);
+  };
+
   const { resId } = useParams();
   // console.log("resId = ", resId);
 
@@ -101,7 +107,14 @@ const RestaurantMenus = () => {
           <div className="">
             {filteredMenu.map((card, index) => {
               // console.log("Card receive", card);
-              return <RestaurantMenuCategories key={index} data={card} />;
+              return (
+                <RestaurantMenuCategories
+                  key={index}
+                  data={card}
+                  accordion={accordion===index}
+                  handleAccordion={ ()=> setAccordion(accordion===index? null:index)}
+                />
+              );
             })}
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const MenuItemList = ({ listData }) => {
-    console.log("data from MenuItemList = ", listData);
+  console.log("data from MenuItemList = ", listData);
   const [toggle, setToggle] = useState(null);
 
   const handleToggle = (index) => {
@@ -14,12 +14,8 @@ const MenuItemList = ({ listData }) => {
   //
   return (
     <div>
-      {
-        
-        listData?.card?.card?.itemCards &&
-        
+      {listData?.card?.card?.itemCards &&
         listData?.card?.card?.itemCards.map((item) => {
-          
           const {
             id,
             name,
@@ -67,23 +63,23 @@ const MenuItemList = ({ listData }) => {
           );
         })}
 
-      {listData?.card?.card?.categories && 
+      {listData?.card?.card?.categories &&
         listData?.card?.card?.categories.map((cat, index) => {
           // console.log("category item = ", cat);
           return (
-            <div key={index}>
+            <div key={index} className="mt-5">
               <div
-                className="flex justify-center mt-2 items-center px-3 cursor-pointer"
+                className="bg-red-400 rounded-xl flex justify-between shadow-md mt-2 items-center px-3 cursor-pointer"
                 onClick={() => handleToggle(index)}
               >
-                <h1 className="bg-red-400 w-2xl text-xm px-4 py-2">
+                <h1 className=" w-2xl text-xm px-4 py-2">
                   {cat.title} ({cat?.itemCards?.length})
                 </h1>
-                <span className="bg-red-400  text-xm font-bold text-gray-700 px-4 py-2 transition-transform duration-300 flex items-center justify-center">
+                
+                <span className="  text-xm font-bold px-4 py-2 transition-transform duration-300">
                   {toggle === index ? "↑" : "↓"}
                 </span>
               </div>
-
               {toggle === index && (
                 <div className="mt-2">
                   {cat.itemCards.map((item) => {
@@ -102,7 +98,7 @@ const MenuItemList = ({ listData }) => {
 
                     return (
                       <div className="flex justify-center" key={id}>
-                        <div className="bg-green-300 m-3 p-4 rounded-2xl w-2xl flex">
+                        <div className="bg-green-200 m-3 p-4 rounded-2xl w-2xl flex">
                           <div className="w-5/6">
                             <h1 className="text-pink-500 font-bold">{name}</h1>
                             <span className="dark:text-gray-600 font-semibold">
@@ -127,7 +123,7 @@ const MenuItemList = ({ listData }) => {
                               }
                               alt="food image"
                             />
-                            <button className="bg-gray-400 p-1 rounded-xl ml-4 mt-1 text-sm cursor-pointer">
+                            <button className="bg-gray-300 font-semibold text-pink-500 w-25 rounded-xl mr-5 mt-1 text-sm cursor-pointer hover:bg-gray-400 hover:shadow-md">
                               Add Cart
                             </button>
                           </div>
