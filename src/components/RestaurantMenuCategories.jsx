@@ -1,25 +1,14 @@
 import MenuItemList from "./MenuItemList";
 
 const RestaurantMenuCategories = ({ data, accordion, handleAccordion }) => {
-  // console.log("data Restaurant Menu Category = ", data);
-  // const [accordion, setAccordion] = useState(false);
-
-  // const handleAccordion = () => {
-  //   setAccordion(!accordion);
-  // };
-
-  // console.log("Accordion= ", accordion);
-  // console.log("handle Acc= ", handleAccordion);
-
   const isItemCategory =
     data.card.card["@type"] ===
     "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
 
   return (
     <>
-      {isItemCategory ?
+      {isItemCategory ? (
         // item category list
-        (
         <div className="mt-5 flex justify-center">
           <div className="w-2xl">
             <div
@@ -33,11 +22,6 @@ const RestaurantMenuCategories = ({ data, accordion, handleAccordion }) => {
         text-gray-800
       "
               >
-                {/* {data.card.card.title}(
-          {data?.card?.card?.itemCards?.length ||
-            data?.card?.card?.categories?.length}
-          ) */}
-
                 {data.card.card.title}
                 {data?.card?.card?.itemCards?.length
                   ? ` (${data.card.card.itemCards.length})`
@@ -60,9 +44,8 @@ const RestaurantMenuCategories = ({ data, accordion, handleAccordion }) => {
             )}
           </div>
         </div>
-      ) :
-      // nested menu item category list
-        (
+      ) : (
+        // nested menu item category list
         <div className="flex justify-center mt-5">
           <div className="w-2xl bg-gray-200 rounded-xl px-6 py-4 shadow-md">
             <h1 className="font-semibold text-xl text-gray-800">
