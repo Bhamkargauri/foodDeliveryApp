@@ -3,9 +3,6 @@ import Footer from "./Footer";
 import Headers from "./Headers";
 
 function App() {
-
-  
-
   return (
     <>
       <Headers />
