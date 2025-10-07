@@ -11,10 +11,18 @@ const Headers = () => {
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-yellow-300 font-poppins">
-      <div className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
+      <div className="max-w-screen-xl mx-auto flex items-center justify-between">
         <div className="flex">
-          <img src={logo} alt="Logo" className="w-24" />
-          <img src={name} className="w-25 ml-0" />
+          <img
+            src={logo}
+            alt="Logo"
+            style={{ width: "70px", height: "auto" }}
+          />
+          <img
+            src={name}
+            className="ml-0"
+            style={{ width: "90px", height: "auto" }}
+          />
         </div>
         <input type="checkbox" id="menu-toggle" className="hidden peer" />
         <label
@@ -45,7 +53,7 @@ const Headers = () => {
           <li>
             <Link
               to="/"
-              className="block py-2 px-3 text-pink-700 md:p-0 dark:text-white md:dark:text-pink-500 hover:text-pink-500 transition-colors"
+              className="block py-2 px-3  md:p-0 dark:text-white md:dark:hover:text-pink-500 hover:text-pink-500 transition-colors focus:text-pink-500 focus:underline focus:underline-offset-8"
             >
               Home
             </Link>
@@ -53,7 +61,7 @@ const Headers = () => {
           <li>
             <Link
               to="/about"
-              className="block py-2 px-3 md:p-0 dark:text-white md:dark:hover:text-pink-500 hover:text-pink-500 transition-colors"
+              className="block py-2 px-3 md:p-0 dark:text-white md:dark:hover:text-pink-500 hover:text-pink-500 transition-colors focus:text-pink-500 focus:underline focus:underline-offset-8"
             >
               About
             </Link>
@@ -61,7 +69,7 @@ const Headers = () => {
           <li>
             <Link
               to="/contact"
-              className="block py-2 px-3 md:p-0 dark:text-white md:dark:hover:text-pink-500 hover:text-pink-500 transition-colors"
+              className="block py-2 px-3 md:p-0 dark:text-white md:dark:hover:text-pink-500 hover:text-pink-500 transition-colors focus:text-pink-500 focus:underline focus:underline-offset-8"
             >
               Contact
             </Link>
@@ -69,7 +77,7 @@ const Headers = () => {
           <li>
             <Link
               to="/grocery"
-              className="block py-2 px-3 md:p-0 dark:text-white md:dark:hover:text-pink-500 hover:text-pink-500 transition-colors"
+              className="block py-2 px-3 md:p-0 dark:text-white md:dark:hover:text-pink-500 hover:text-pink-500 transition-colors focus:text-pink-500 focus:underline focus:underline-offset-8"
             >
               Grocery
             </Link>
@@ -86,24 +94,6 @@ const Headers = () => {
             >
               {islogIn}
             </Link>
-
-            {/* {isLogIn ? (
-              <a
-                href="#"
-                className="bg-pink-500 p-2 m-2 text-white rounded-full shadow-lg hover:bg-yellow-300 hover:text-pink-500 cursor-pointer"
-                onClick={() => setIsLogIn(false)}
-              >
-                Logout
-              </a>
-            ) : (
-              <a
-                href="#"
-                className="bg-pink-500 p-2 m-2 text-white rounded-full shadow-lg hover:bg-yellow-300 hover:text-pink-500 cursor-pointer"
-                onClick={() => setIsLogIn(true)}
-              >
-                Login
-              </a>
-            )} */}
           </li>
         </ul>
       </div>
