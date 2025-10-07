@@ -67,7 +67,7 @@ const RestaurantContainer = () => {
   // filter non-veg data
   const handleNonVegData = () => {
     let nonVegData = listResData.filter((res) => !res.info.veg);
-    console.log(nonVegData);
+    // console.log(nonVegData);
     setFilterCopyRest(nonVegData);
   };
 
@@ -84,6 +84,7 @@ const RestaurantContainer = () => {
     });
     setFilterCopyRest(searchFilterData);
   };
+  
   const isOnline = useOnlineStatus();
   if (!isOnline) {
     return <h1>Opps! you are offline</h1>;
