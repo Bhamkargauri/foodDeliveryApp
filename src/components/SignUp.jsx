@@ -7,7 +7,7 @@ const SignUp = () => {
 
       <div
         className="font-poppins flex flex-col justify-center px-6 py-6 mx-auto md:h-screen lg:py-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${loginBg})` }}
+        style={{ backgroundImage: `url(${loginBg})`}}
       >
         <div className="md:ml-[600px] w-full bg-white/40 backdrop-blur-md rounded-tr-[200px] rounded-bl-[200px] md:mt-0 sm:max-w-md xl:p-0 dark:bg-pink-500/70 shadow-2xl px-8">
           <div className="p-4 space-y-4 md:space-y-5 sm:p-6">

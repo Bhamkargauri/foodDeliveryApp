@@ -10,7 +10,7 @@ const Headers = () => {
   const isOnline = useOnlineStatus();
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-yellow-300 font-poppins">
+    <nav className="bg-white border-gray-200 dark:bg-yellow-300/90 font-poppins">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between">
         <div className="flex">
           <img
@@ -85,9 +85,9 @@ const Headers = () => {
           <li>
             <Link
               href="#"
-              className="block bg-pink-500 p-2 m-2 px-5 text-white rounded-full shadow-lg 
+              className="block bg-pink-500/70 p-2 m-2 px-5 text-white rounded-full shadow-lg 
              hover:bg-yellow-300 hover:text-pink-500 cursor-pointer 
-             text-center min-w-24"
+             text-center min-w-24 backdrop-blur-sm"
               onClick={() =>
                 setIsLogIn(islogIn === "Login" ? "Logout" : "Login")
               }

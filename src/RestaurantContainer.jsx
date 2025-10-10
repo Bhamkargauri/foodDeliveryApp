@@ -21,7 +21,7 @@ const RestaurantContainer = () => {
   }, []);
 
   useEffect(() => {
-    if (location.pathname==="/") {
+    if (location.pathname === "/") {
       setFilterCopyRest(listResData);
     }
   }, [location.key]);
@@ -84,7 +84,7 @@ const RestaurantContainer = () => {
     });
     setFilterCopyRest(searchFilterData);
   };
-  
+
   const isOnline = useOnlineStatus();
   if (!isOnline) {
     return <h1>Opps! you are offline</h1>;
@@ -95,7 +95,16 @@ const RestaurantContainer = () => {
   }
   return (
     <>
-      <div className="font-poppins">
+      <div
+        className="font-poppins"
+        // style={{
+        //   backgroundImage: `url(${hotelBackground})`,
+        //   backgroundSize: "cover",
+        //   backgroundRepeat: "no-repeat",
+        //   backgroundAttachment: "fixed",
+        //   backgroundPosition: "center center",
+        // }}
+      >
         <div className="flex">
           <div className="w-3/4">
             <button
