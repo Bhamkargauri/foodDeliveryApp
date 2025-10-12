@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import ErrorComponent from "./components/ErrorComponent";
 import RestaurantMenus from "./components/RestaurantMenus";
 import RestaurantContainer from "./RestaurantContainer";
+import SignUp from "./components/SignUp";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -40,6 +41,10 @@ const appRouter = createBrowserRouter([
           </Suspense>
         ),
       },
+      {
+        path: "/signup",
+        element: <SignUp />,
+      }
     ],
   },
 ]);

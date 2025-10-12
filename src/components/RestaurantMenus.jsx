@@ -11,10 +11,6 @@ const RestaurantMenus = () => {
 
   const [accordion, setAccordion] = useState(false);
 
-  // const handleAccordion = () => {
-  //   setAccordion(!accordion);
-  // };
-
   const { resId } = useParams();
   // console.log("resId = ", resId);
 
@@ -28,7 +24,7 @@ const RestaurantMenus = () => {
       const res = await axios.get(
         `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.1397082&lng=79.0631071&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
       );
-      // console.log("Menus from RestaurantMenu = ", res);
+      console.log("Menus from RestaurantMenu = ", res);
       setRestMenu(res.data);
     } catch (err) {
       console.error(err);
@@ -111,8 +107,10 @@ const RestaurantMenus = () => {
                 <RestaurantMenuCategories
                   key={index}
                   data={card}
-                  accordion={accordion===index}
-                  handleAccordion={ ()=> setAccordion(accordion===index? null:index)}
+                  accordion={accordion === index}
+                  handleAccordion={() =>
+                    setAccordion(accordion === index ? null : index)
+                  }
                 />
               );
             })}

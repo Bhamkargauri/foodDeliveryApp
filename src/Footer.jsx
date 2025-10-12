@@ -3,7 +3,7 @@ import name from "../src/assets/images/name.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-yellow-300 dark:bg-yellow-300/90 font-poppins mt-8">
+    <footer className="bg-yellow-300 dark:bg-yellow-300/90 font-poppins">
       <div className="max-w-screen-xl mx-auto p-6 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
         <div className="flex items-center space-x-2">
           <img src={logo} alt="Logo" className="w-16" />

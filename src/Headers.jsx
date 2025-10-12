@@ -84,7 +84,7 @@ const Headers = () => {
           </li>
           <li>
             <Link
-              href="#"
+              to="/signup"
               className="block bg-pink-500/70 p-2 m-2 px-5 text-white rounded-full shadow-lg 
              hover:bg-yellow-300 hover:text-pink-500 cursor-pointer 
              text-center min-w-24 backdrop-blur-sm"

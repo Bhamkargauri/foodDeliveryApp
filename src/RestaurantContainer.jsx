@@ -96,7 +96,7 @@ const RestaurantContainer = () => {
   return (
     <>
       <div
-        className="font-poppins"
+        className="font-poppins mb-8"
         // style={{
         //   backgroundImage: `url(${hotelBackground})`,
         //   backgroundSize: "cover",
